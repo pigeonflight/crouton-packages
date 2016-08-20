@@ -42,7 +42,7 @@ if [ $supported -eq 0 ]; then
   exit 1
 fi
 # Adding the ppa to apt sources.
-echo "deb https://raw.githubusercontent.com/divx118/crouton-packages/$BRANCH/ $KERNEL main" > /etc/apt/sources.list.d/crouton-packages.list
+echo "deb http://cdn.rawgit.com/divx118/crouton-packages/$BRANCH/ $KERNEL main" > /etc/apt/sources.list.d/crouton-packages.list
 apt-get update
 # umount bindmounts /lib/modules from enter-chroot
 for m in `cat /proc/mounts | /usr/bin/cut -d ' ' -f2 | grep /lib/modules| grep -v "^/$" `; do
@@ -60,7 +60,7 @@ if [ -f /etc/rc.local ]; then
   echo "============================================================================"
   echo ""
 fi
-wget -O /etc/rc.local "https://raw.githubusercontent.com/divx118/crouton-packages/$BRANCH/rc.local"
+wget -O /etc/rc.local "http://cdn.rawgit.com/divx118/crouton-packages/$BRANCH/rc.local"
 chown root:root /etc/rc.local
 chmod +x /etc/rc.local
 echo ""
