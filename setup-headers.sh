@@ -14,8 +14,8 @@ echo "# This script will add the repo to your sources, download
 and install the kernel headers appropriate to your
 kernel version and architecture."
 apt-get install -y apt-transport-https
-wget -O - "https://pigeonflight.github.io/crouton-packages/$BRANCH/mauricevankruchten@gmail.com.gpg.key" | apt-key add -
-wget -O $TMP_DIST "https://pigeonflight.github.io/crouton-packages/$BRANCH/conf/distributions"
+wget -O - "https://raw.githubusercontent.com/divx118/crouton-packages/$BRANCH/mauricevankruchten@gmail.com.gpg.key" | apt-key add -
+wget -O $TMP_DIST "https://raw.githubusercontent.com/divx118/crouton-packages/$BRANCH/conf/distributions"
 KERNEL="`uname -r`"
 echo $KERNEL
 ARCH="`uname -m | sed -e 's i.86 i386 ;s arm.* arm ;s x86_64 amd64 ;'`"
